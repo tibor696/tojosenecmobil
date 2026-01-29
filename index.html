@@ -237,22 +237,105 @@ img {
     }
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px 20px;
+}
+
+.logo-text {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* MENU LINKS */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #e63946;
+}
+
+/* BURGER */
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* MOBIL */
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #1f1f1f;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
     </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <div><strong>To Jo cars</strong> | Poistné udalosti Senec</div>
-        <div>
-            <a href="#domov">Domov</a>
-            <a href="#sluzby">Služby</a>
-            <a href="#poistovne">Poisťovne</a>
-            <a href="#kontakt">Kontakt</a>
+    <nav class="navbar">
+        <div class="logo-text">
+            TO JO | Autoservis Senec
+        </div>
+
+        <!-- BURGER IKONA -->
+        <div class="burger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- MENU -->
+        <div class="nav-links" id="navLinks">
+            <a href="#domov" onclick="toggleMenu()">Domov</a>
+            <a href="#sluzby" onclick="toggleMenu()">Služby</a>
+            <a href="#poistovne" onclick="toggleMenu()">Poisťovne</a>
+            <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
         </div>
     </nav>
 </header>
-
 <section class="hero" id="domov">
     <div class="hero-logo">
         <img src="logo3.jpg" alt="TO JO Cars">
@@ -394,5 +477,10 @@ img {
     <p>© 2026 To Jo cars Senec</p>
 </footer>
 
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 </body>
 </html>
