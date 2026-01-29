@@ -558,11 +558,21 @@ img {
 document.addEventListener("DOMContentLoaded", function () {
     const burger = document.getElementById("burger");
     const navLinks = document.getElementById("navLinks");
+    const links = navLinks.querySelectorAll("a");
 
+    // otvorenie / zatvorenie menu klikom na burger
     burger.addEventListener("click", function () {
         navLinks.classList.toggle("active");
+    });
+
+    // ZATVORENIE MENU PO KLIKnutí NA POLOŽKU
+    links.forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
     });
 });
 </script>
 </body>
 </html>
+
