@@ -40,15 +40,30 @@
             max-width: 1100px;
             margin: auto;
         }
-        .hero {
+  .hero {
     background: #2b2b2b;
     color: #fff;
     text-align: center;
-    height: 420px;              /* PEVNÁ výška */
+    min-height: 420px;        /* PC */
     display: flex;
     flex-direction: column;
-    justify-content: center;    /* vertikálne centrovanie */
+    justify-content: center;
     padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 320px;
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
 }
         }
         .hero h1 {
@@ -99,6 +114,29 @@
                 font-size: 28px;
             }
         }
+.hero-logo {
+    max-width: 420px;
+    max-height: 120px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto 25px;
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 260px;
+        max-height: 80px;
+        margin-bottom: 20px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 .insurance-card {
     text-align: center;
